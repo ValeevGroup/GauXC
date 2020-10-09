@@ -14,6 +14,11 @@ if( NOT ${ExchCXX_FOUND} )
 
   FetchContent_MakeAvailable( exchcxx )
 
+  # disable unity builds for libxc
+  if (CMAKE_UNITY_BUILD)
+    set_target_properties(exchcxx PROPERTIES UNITY_BUILD OFF)
+    message(STATUS "Will disable unity-build for target exchcxx")
+  endif()
 
 else()
 
