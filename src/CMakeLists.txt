@@ -59,3 +59,34 @@ if( GAUXC_ENABLE_CEREAL )
 endif()
 
 add_subdirectory( integrator )
+
+include( GNUInstallDirs )
+set( INSTALL_CONFIGDIR ${CMAKE_INSTALL_LIBDIR}/cmake/ExchCXX )
+
+# Targets
+install(TARGETS gauxc gauxc_gau2grid
+    EXPORT gauxc-targets
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    )
+
+set_target_properties( gauxc PROPERTIES EXPORT_NAME ExchCXX )
+
+# Install Headers
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} FILES_MATCHING PATTERN "*.hpp" )
+install(DIRECTORY ${PROJECT_BINARY_DIR}/include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} FILES_MATCHING PATTERN "*.hpp" )
+
+# Export target to script
+install(EXPORT gauxc-targets
+    FILE
+    GauXCTargets.cmake
+    NAMESPACE
+    GauXC::
+    DESTINATION
+    ${INSTALL_CONFIGDIR}
+    )
+
+# Export build-tree targets (to be usable by e.g. FetchContent)
+export(EXPORT gauxc-targets
+    NAMESPACE GauXC::
+    FILE "${PROJECT_BINARY_DIR}/GauXCTargets.cmake")
