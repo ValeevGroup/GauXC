@@ -5,9 +5,9 @@ if( NOT ${IntegratorXX_FOUND} )
   FetchContent_Declare(
     integratorxx
     GIT_REPOSITORY 
-      https://github.com/wavefunction91/IntegratorXX.git
+      https://github.com/evaleev/IntegratorXX.git
     GIT_TAG 
-      redo
+      master
   )
 
   FetchContent_MakeAvailable( integratorxx )
