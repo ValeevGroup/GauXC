@@ -7,7 +7,7 @@ if( NOT ${ExchCXX_FOUND} )
   FetchContent_Declare(
     exchcxx
     GIT_REPOSITORY 
-      https://github.com/evaleev/ExchCXX.git
+      https://github.com/ValeevGroup/ExchCXX.git
     GIT_TAG 
       master
   )
