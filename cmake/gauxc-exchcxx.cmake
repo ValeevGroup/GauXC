@@ -9,7 +9,7 @@ if( NOT ${ExchCXX_FOUND} )
     GIT_REPOSITORY 
       https://github.com/ValeevGroup/ExchCXX.git
     GIT_TAG 
-      master
+      tracking-vg-gauxc
   )
 
   FetchContent_MakeAvailable( exchcxx )
