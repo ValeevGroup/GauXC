@@ -8,6 +8,7 @@ if( NOT gau2grid_FOUND )
   FetchContent_Declare(
     gau2grid
     GIT_REPOSITORY https://github.com/dgasmith/gau2grid.git
+    GIT_TAG 9c3d39c109747e80c7ff1ababbb36b80823ff5b5
   )
 
   set( MAX_AM 6 CACHE STRING "" )
